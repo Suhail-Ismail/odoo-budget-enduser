@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+    <!--VIEWS-->
+        <!--FORM VIEW-->
+        <record model="ir.ui.view" id="view_form_section">
+            <field name="name">Section</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form string="Section">
+                    <header>
+                    <button
+                        string="Set to Inactive"
+                        name="set2inactive"
+                        type="object"
+                        states="active" />
+                    <button
+                        string="Set to Active"
+                        name="set2active"
+                        type="object"
+                        states="inactive" />
+                    <field name="state" widget="statusbar"/>
+                </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" required="1" default_focus="1" placeholder="Section"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="is_budget_section" readonly="0"/>
+                                <field name="alias" required="1"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                        </group>
+                        <notebook colspan="4">
+                            <page string="Sub Sections">
+                                <field name="sub_section_ids"
+                                       context="{'form_view_ref': 'budget_enduser.view_form_sub_section',
+                                                 'tree_view_ref': 'budget_enduser.view_tree_sub_section',
+                                                 'default_is_budget_sub_section': True}"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--TREE VIEW-->
+        <record model="ir.ui.view" id="view_tree_section">
+            <field name="name">Section</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="alias"/>
+                    <field name="state"/>
+                </tree>
+             </field>
+        </record>
+
+    <!--START ACTIONS-->
+        <!--Section Action-->
+        <record model="ir.actions.act_window" id="action_section">
+            <field name="name">Section</field>
+            <field name="res_model">res.partner</field>
+            <field name="domain">[('is_budget_section','=',True)]</field>
+            <field name="context">{'default_is_budget_section': True}</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_section_view_form">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_form_section"/>
+            <field name="act_window_id" ref="action_section"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="action_section_view_tree">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_section"/>
+            <field name="act_window_id" ref="action_section"/>
+        </record>
+
+    <!--END ACTIONS-->
+    </data>
+</openerp>

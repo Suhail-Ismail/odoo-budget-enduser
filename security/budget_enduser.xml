@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data noupdate="0">
+        <record model="ir.module.category" id="category_enduser">
+            <field name="name">Enduser</field>
+            <field name="description">Category for the Enduser</field>
+        </record>
+
+        <record model="res.groups" id="group_enduser_user">
+            <field name="name">User</field>
+            <field name="category_id" ref="category_enduser"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="group_enduser_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="category_enduser"/>
+            <field name="implied_ids" eval="[(4, ref('group_enduser_user'))]"/>
+        </record>
+    </data>
+</openerp>

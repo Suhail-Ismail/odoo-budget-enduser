@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<openerp>
+    <data>
+    <!--START CONTRACTOR VIEWS-->
+        <!--CONTRACTOR FORM VIEW-->
+        <record model="ir.ui.view" id="view_form_region">
+            <field name="name">Region</field>
+            <field name="model">budget.region</field>
+            <field name="arch" type="xml">
+                <form string="Region">
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                        </div>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" required="1" default_focus="1" placeholder="Section"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="alias" required="1"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--TREE VIEW-->
+        <record model="ir.ui.view" id="view_tree_region">
+            <field name="name">Region</field>
+            <field name="model">budget.region</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="alias"/>
+                </tree>
+             </field>
+        </record>
+
+    <!--START ACTIONS-->
+        <!--Region Action-->
+        <record model="ir.actions.act_window" id="action_region">
+            <field name="name">Region</field>
+            <field name="res_model">budget.region</field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="action_region_view_form">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_form_region"/>
+            <field name="act_window_id" ref="action_region"/>
+        </record>
+        <record model="ir.actions.act_window.view" id="action_region_view_tree">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_region"/>
+            <field name="act_window_id" ref="action_region"/>
+        </record>
+    <!--END ACTIONS-->
+    </data>
+</openerp>

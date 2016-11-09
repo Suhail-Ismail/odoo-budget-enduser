@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_budget_enduser_region_user,budget_enduser.region,model_budget_region,group_enduser_user,1,1,1,0
+access_budget_enduser_region_manager,budget_enduser.region,model_budget_region,group_enduser_manager,1,1,1,1

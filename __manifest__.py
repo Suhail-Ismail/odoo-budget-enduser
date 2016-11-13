@@ -33,6 +33,8 @@ Contractor Management
         'views/menu.xml',
     ],
     'demo': [
+        'demo/budget.region.csv',
+        'demo/res.partner.csv',
     ],
     'installable': True,
     'application': True,

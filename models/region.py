@@ -2,7 +2,6 @@
 
 from odoo import models, fields, api
 
-# TODO: ADD THIS REGION TO INVOICE
 class Region(models.Model):
     _name = 'budget.region'
     _rec_name = 'alias'

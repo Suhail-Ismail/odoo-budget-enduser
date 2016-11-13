@@ -11,6 +11,7 @@ class SubSection(models.Model):
     # CHOICES
     # ----------------------------------------------------------
     STATES = choices_tuple(['active', 'inactive'])
+
     # BASIC FIELDS
     # name exist already
     # alias exist already

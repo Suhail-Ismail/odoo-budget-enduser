@@ -11,6 +11,7 @@ class Section(models.Model):
     # CHOICES
     # ----------------------------------------------------------
     STATES = choices_tuple(['active', 'inactive'])
+
     # BASIC FIELDS
     # name exist already
     # ----------------------------------------------------------
@@ -21,10 +22,6 @@ class Section(models.Model):
 
     # RELATIONSHIP
     # ----------------------------------------------------------
-    # TODO PLACE THIS TO INHERTANCE IN CONTRACT
-    # section_contract_ids = fields.One2many('budget.contract',
-    #                               'section_id',
-    #                               string="Contracts")
     sub_section_ids = fields.One2many('res.partner',
                                   'sub_section_section_id',
                                   string="Contracts")

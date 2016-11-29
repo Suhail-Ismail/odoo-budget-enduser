@@ -22,6 +22,7 @@ Contractor Management
     'depends': [
         'base',
         'mail',
+        'document'
     ],
     'data': [
         'security/budget_enduser.xml',
@@ -33,8 +34,6 @@ Contractor Management
         'views/menu.xml',
     ],
     'demo': [
-        'demo/budget.region.csv',
-        'demo/res.partner.csv',
     ],
     'installable': True,
     'application': True,

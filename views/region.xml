@@ -6,7 +6,7 @@
         <!--CONTRACTOR FORM VIEW-->
         <record model="ir.ui.view" id="view_form_region">
             <field name="name">Region</field>
-            <field name="model">budget.region</field>
+            <field name="model">budget.enduser.region</field>
             <field name="arch" type="xml">
                 <form string="Region">
                     <sheet>
@@ -35,7 +35,7 @@
         <!--TREE VIEW-->
         <record model="ir.ui.view" id="view_tree_region">
             <field name="name">Region</field>
-            <field name="model">budget.region</field>
+            <field name="model">budget.enduser.region</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
@@ -48,7 +48,7 @@
         <!--Region Action-->
         <record model="ir.actions.act_window" id="action_region">
             <field name="name">Region</field>
-            <field name="res_model">budget.region</field>
+            <field name="res_model">budget.enduser.region</field>
         </record>
 
         <record model="ir.actions.act_window.view" id="action_region_view_form">

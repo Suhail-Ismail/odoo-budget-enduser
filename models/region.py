@@ -3,7 +3,7 @@
 from odoo import models, fields, api
 
 class Region(models.Model):
-    _name = 'budget.region'
+    _name = 'budget.enduser.region'
     _rec_name = 'alias'
     _description = 'Region'
 

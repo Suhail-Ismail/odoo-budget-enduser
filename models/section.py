@@ -15,16 +15,18 @@ class Section(models.Model):
     # BASIC FIELDS
     # name exist already
     # ----------------------------------------------------------
-    alias = fields.Char(string='Alias')
-    state = fields.Selection(string='State', selection=STATES, default='active')
     is_budget_section = fields.Boolean(string='Is Budget Section')
+
+    state = fields.Selection(string='State', selection=STATES, default='active')
+
+    alias = fields.Char(string='Alias')
     note = fields.Text(string='Note')
 
     # RELATIONSHIP
     # ----------------------------------------------------------
     sub_section_ids = fields.One2many('res.partner',
                                   'sub_section_section_id',
-                                  string="Contracts")
+                                  string="Sub Sections")
 
     # BUTTONS AND TRANSITIONS
     # ----------------------------------------------------------

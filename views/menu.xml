@@ -6,7 +6,7 @@
     <menuitem
         id="menu_enduser_top"
         name="End Users"
-        sequence="4"/>
+        sequence="2"/>
     <!--END MENU PARENT-->
 
     <!--MENU CHILD-->

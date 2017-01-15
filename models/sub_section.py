@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-from utils import choices_tuple
+from odoo.addons.budget_utilities.models.utilities import choices_tuple
 
 class SubSection(models.Model):
     _inherit = 'res.partner'

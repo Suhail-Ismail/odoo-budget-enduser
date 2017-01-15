@@ -3,7 +3,7 @@
     'name': "End User",
     'version': '0.1',
     'summary': 'End User Management',
-    'sequence': 1,
+    'sequence': 2,
     'description': """
 Odoo Module
 ===========
@@ -14,15 +14,16 @@ Contractor Management
 - Region
 - Section
 - Sub Section
-- Contacts
+- Access Users
+        - Dependent - Can readonly
+        - User - General Usage except delete power, can Edit recurrence but not create
+        - Manager - All power to manipulate data
     """,
     'author': "Marc Philippe de Villeres",
     'website': "https://github.com/mpdevilleres",
     'category': 'TBPC Budget',
     'depends': [
-        'base',
-        'mail',
-        'document'
+        'budget_utilities',
     ],
     'data': [
         'security/budget_enduser.xml',

@@ -2,10 +2,10 @@
 
 <openerp>
     <data>
-    <!--START CONTRACTOR VIEWS-->
-        <!--CONTRACTOR FORM VIEW-->
+        <!--START VIEWS-->
+        <!--START FORM VIEW-->
         <record model="ir.ui.view" id="view_form_region">
-            <field name="name">Region</field>
+            <field name="name">budget.enduser.region.form</field>
             <field name="model">budget.enduser.region</field>
             <field name="arch" type="xml">
                 <form string="Region">
@@ -31,10 +31,11 @@
                 </form>
             </field>
         </record>
+        <!--END FORM VIEW-->
 
-        <!--TREE VIEW-->
+        <!--START TREE VIEW-->
         <record model="ir.ui.view" id="view_tree_region">
-            <field name="name">Region</field>
+            <field name="name">budget.enduser.region.tree</field>
             <field name="model">budget.enduser.region</field>
             <field name="arch" type="xml">
                 <tree>
@@ -43,26 +44,20 @@
                 </tree>
              </field>
         </record>
+        <!--END TREE VIEW-->
 
-    <!--START ACTIONS-->
-        <!--Region Action-->
+        <!--START ACTION-->
         <record model="ir.actions.act_window" id="action_region">
             <field name="name">Region</field>
             <field name="res_model">budget.enduser.region</field>
-        </record>
-
-        <record model="ir.actions.act_window.view" id="action_region_view_form">
-            <field name="sequence" eval="2"/>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_form_region"/>
-            <field name="act_window_id" ref="action_region"/>
-        </record>
-        <record model="ir.actions.act_window.view" id="action_region_view_tree">
-            <field name="sequence" eval="1"/>
-            <field name="view_mode">tree</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,pivot</field>
             <field name="view_id" ref="view_tree_region"/>
-            <field name="act_window_id" ref="action_region"/>
+            <field name="context">
+                {'form_view_ref': 'budget_enduser.view_form_region',
+                'search_default_filter_state': 1}
+            </field>
         </record>
-    <!--END ACTIONS-->
+        <!--END ACTION-->
     </data>
 </openerp>

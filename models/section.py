@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
-from utils import choices_tuple
+from odoo.addons.budget_utilities.models.utilities import choices_tuple
 
 class Section(models.Model):
     _inherit = 'res.partner'
@@ -15,11 +15,11 @@ class Section(models.Model):
     # BASIC FIELDS
     # name exist already
     # ----------------------------------------------------------
+    alias = fields.Char(string="Alias")
     is_budget_section = fields.Boolean(string='Is Budget Section')
 
     state = fields.Selection(string='State', selection=STATES, default='active')
 
-    alias = fields.Char(string='Alias')
     note = fields.Text(string='Note')
 
     # RELATIONSHIP

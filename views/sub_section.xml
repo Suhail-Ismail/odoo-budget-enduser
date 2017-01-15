@@ -2,8 +2,7 @@
 
 <openerp>
     <data>
-    <!--VIEWS-->
-        <!--FORM VIEW-->
+        <!--START FORM VIEW-->
         <record model="ir.ui.view" id="view_form_sub_section">
             <field name="name">Sub Section</field>
             <field name="model">res.partner</field>
@@ -27,12 +26,14 @@
                         </div>
                         <div class="oe_title">
                             <h1>
+                                <group groups="base.group_system">
+                                    <field name="is_budget_sub_section"/>
+                                </group>
                                 <field name="name" required="1" default_focus="1" placeholder="Sub Section"/>
                             </h1>
                         </div>
                         <group>
                             <group>
-                                <field name="is_budget_sub_section" readonly="0"/>
                                 <field name="alias" required="1"/>
                             </group>
                             <group>
@@ -45,8 +46,9 @@
                 </form>
             </field>
         </record>
+        <!--END FORM VIEW-->
 
-        <!--TREE VIEW-->
+        <!--START TREE VIEW-->
         <record model="ir.ui.view" id="view_tree_sub_section">
             <field name="name">Sub Section</field>
             <field name="model">res.partner</field>
@@ -58,29 +60,19 @@
                 </tree>
              </field>
         </record>
+        <!--END TREE VIEW-->
 
-    <!--START ACTIONS-->
-        <!--Sub Section Action-->
+        <!--START ACTION-->
         <record model="ir.actions.act_window" id="action_sub_section">
             <field name="name">Sub Section</field>
             <field name="res_model">res.partner</field>
-            <field name="domain">[('is_budget_sub_section','=',True)]</field>
-            <field name="context">{'default_is_budget_sub_section': True}</field>
-        </record>
-
-        <record model="ir.actions.act_window.view" id="action_sub_section_view_form">
-            <field name="sequence" eval="2"/>
-            <field name="view_mode">form</field>
-            <field name="view_id" ref="view_form_sub_section"/>
-            <field name="act_window_id" ref="action_sub_section"/>
-        </record>
-
-        <record model="ir.actions.act_window.view" id="action_sub_section_view_tree">
-            <field name="sequence" eval="1"/>
-            <field name="view_mode">tree</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,pivot</field>
             <field name="view_id" ref="view_tree_sub_section"/>
-            <field name="act_window_id" ref="action_sub_section"/>
+            <field name="domain">[('is_budget_sub_section','=',True)]</field>
+            <field name="context">{'form_view_ref': 'budget_enduser.view_form_sub_section',
+                                   'default_is_budget_sub_section': True}</field>
         </record>
-    <!--END ACTIONS-->
+        <!--END ACTION-->
     </data>
 </openerp>

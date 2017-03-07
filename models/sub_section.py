@@ -24,7 +24,7 @@ class SubSection(models.Model):
 
     # RELATIONSHIP
     # ----------------------------------------------------------
-    sub_section_section_id = fields.Many2one('budget.enduser.section', string='Section')
+    section_id = fields.Many2one('budget.enduser.section', string='Section')
 
     # BUTTONS AND TRANSITIONS
     # ----------------------------------------------------------

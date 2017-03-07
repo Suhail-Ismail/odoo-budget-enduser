@@ -25,7 +25,7 @@ class Section(models.Model):
     # RELATIONSHIP
     # ----------------------------------------------------------
     sub_section_ids = fields.One2many('budget.enduser.sub.section',
-                                  'sub_section_section_id',
+                                  'section_id',
                                   string="Sub Sections")
 
     # BUTTONS AND TRANSITIONS

@@ -5,7 +5,7 @@
         <!--START FORM VIEW-->
         <record model="ir.ui.view" id="view_form_section">
             <field name="name">Section</field>
-            <field name="model">res.partner</field>
+            <field name="model">budget.enduser.section</field>
             <field name="arch" type="xml">
                 <form string="Section">
                     <header>
@@ -25,10 +25,10 @@
                         <div class="oe_button_box" name="button_box">
                         </div>
                         <div class="oe_title">
+                            <group groups="base.group_system">
+                                <field name="partner_id"/>
+                            </group>
                             <h1>
-                                <group groups="base.group_system">
-                                    <field name="is_budget_section"/>
-                                </group>
                                 <field name="name" required="1" default_focus="1" placeholder="Section"/>
                             </h1>
                         </div>
@@ -40,14 +40,11 @@
                             </group>
                         </group>
                         <group>
-                            <field name="note"/>
+                            <field name="remark"/>
                         </group>
                         <notebook colspan="4">
                             <page string="Sub Sections">
-                                <field name="sub_section_ids"
-                                       context="{'form_view_ref': 'budget_enduser.view_form_sub_section',
-                                                 'tree_view_ref': 'budget_enduser.view_tree_sub_section',
-                                                 'default_is_budget_sub_section': True}"/>
+                                <field name="sub_section_ids"/>
                             </page>
                         </notebook>
                     </sheet>
@@ -59,7 +56,7 @@
         <!--START TREE VIEW-->
         <record model="ir.ui.view" id="view_tree_section">
             <field name="name">Section</field>
-            <field name="model">res.partner</field>
+            <field name="model">budget.enduser.section</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
@@ -73,13 +70,12 @@
         <!--START ACTION-->
         <record model="ir.actions.act_window" id="action_section">
             <field name="name">Section</field>
-            <field name="res_model">res.partner</field>
+            <field name="res_model">budget.enduser.section</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form,pivot</field>
             <field name="view_id" ref="view_tree_section"/>
-            <field name="domain">[('is_budget_section','=',True)]</field>
-            <field name="context">{'form_view_ref': 'budget_enduser.view_form_section',
-                                   'default_is_budget_section': True}</field>
+            <field name="domain"></field>
+            <field name="context">{'form_view_ref': 'budget_enduser.view_form_section'}</field>
         </record>
         <!--END ACTION-->
     </data>

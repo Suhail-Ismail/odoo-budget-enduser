@@ -4,9 +4,10 @@ from odoo import models, fields, api
 from odoo.addons.budget_utilities.models.utilities import choices_tuple
 
 class SubSection(models.Model):
-    _inherit = 'res.partner'
-    _rec_name = 'name'
+    _name = 'budget.enduser.sub.section'
     _description = 'Sub Section'
+    _rec_name = 'name'
+    _inherit = ['partner.mixin']
 
     # CHOICES
     # ----------------------------------------------------------
@@ -14,15 +15,16 @@ class SubSection(models.Model):
 
     # BASIC FIELDS
     # name exist already
-    # alias exist already
     # ----------------------------------------------------------
     state = fields.Selection(string='State', selection=STATES, default='active')
-    is_budget_sub_section = fields.Boolean(string='Is Budget Sub Section')
+
+    alias = fields.Char(string="Alias")
+
+    remark = fields.Text(string='Remarks')
 
     # RELATIONSHIP
     # ----------------------------------------------------------
-    sub_section_section_id = fields.Many2one('res.partner', string='Section',
-                                 domain=[('is_budget_section','=',True)])
+    sub_section_section_id = fields.Many2one('budget.enduser.section', string='Section')
 
     # BUTTONS AND TRANSITIONS
     # ----------------------------------------------------------

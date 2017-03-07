@@ -3,37 +3,32 @@
 from odoo import models, fields, api
 from odoo.addons.budget_utilities.models.utilities import choices_tuple
 
-class Section(models.Model):
-    _name = 'budget.enduser.section'
-    _description = 'Section'
-    _rec_name = 'name'
-    _inherit = ['partner.mixin']
+
+# TODO BE REMOVE UNTIL ALL DEPENDENCIES TO ALIAS IS OK
+class Partner(models.Model):
+    _inherit = 'res.partner'
 
     # CHOICES
     # ----------------------------------------------------------
     STATES = choices_tuple(['active', 'inactive'])
 
     # BASIC FIELDS
-    # name exist already
     # ----------------------------------------------------------
     state = fields.Selection(string='State', selection=STATES, default='active')
-
     alias = fields.Char(string="Alias")
 
+    sub_section_ids = fields.One2many('res.partner',
+                                      'sub_section_section_id',
+                                      string="Sub Sections")
+
+    sub_section_section_id = fields.Many2one('budget.enduser.section', string='Section')
+
     remark = fields.Text(string='Remarks')
+    is_budget_section = fields.Boolean(string='Is Budget Section')
+    is_budget_sub_section = fields.Boolean(string='Is Budget Section')
 
     # RELATIONSHIP
     # ----------------------------------------------------------
-    sub_section_ids = fields.One2many('budget.enduser.sub.section',
-                                  'sub_section_section_id',
-                                  string="Sub Sections")
 
     # BUTTONS AND TRANSITIONS
     # ----------------------------------------------------------
-    @api.one
-    def set2active(self):
-        self.state = 'active'
-
-    @api.one
-    def set2inactive(self):
-        self.state = 'inactive'

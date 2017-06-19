@@ -3,6 +3,7 @@
 from odoo import models, fields, api
 from odoo.addons.budget_utilities.models.utilities import choices_tuple
 
+
 class Section(models.Model):
     _name = 'budget.enduser.section'
     _description = 'Section'
@@ -25,8 +26,8 @@ class Section(models.Model):
     # RELATIONSHIP
     # ----------------------------------------------------------
     sub_section_ids = fields.One2many('budget.enduser.sub.section',
-                                  'section_id',
-                                  string="Sub Sections")
+                                      'section_id',
+                                      string="Sub Sections")
 
     # BUTTONS AND TRANSITIONS
     # ----------------------------------------------------------

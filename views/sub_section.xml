@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<openerp>
+<odoo>
     <data>
         <!--START FORM VIEW-->
         <record model="ir.ui.view" id="view_form_sub_section">
@@ -76,4 +76,4 @@
         </record>
         <!--END ACTION-->
     </data>
-</openerp>
+</odoo>

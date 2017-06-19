@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<openerp>
+<odoo>
     <data noupdate="0">
         <record model="ir.module.category" id="category_enduser">
             <field name="name">Enduser</field>
@@ -25,4 +25,4 @@
             <field name="implied_ids" eval="[(4, ref('group_enduser_user'))]"/>
         </record>
     </data>
-</openerp>
+</odoo>

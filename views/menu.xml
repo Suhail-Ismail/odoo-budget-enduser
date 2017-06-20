@@ -11,19 +11,22 @@
 
     <!--MENU CHILD-->
     <menuitem
+        id="menu_division_top_left"
+        name="Division"
+        parent="menu_enduser_top"
+        sequence="1"
+        action="action_division"/>
+    <menuitem
         id="menu_section_top_left"
         name="Section"
         parent="menu_enduser_top"
+        sequence="2"
         action="action_section"/>
-    <menuitem
-        id="menu_sub_section_top_left"
-        name="Sub Section"
-        parent="menu_enduser_top"
-        action="action_sub_section"/>
     <menuitem
         id="menu_region_top_left"
         name="Region"
         parent="menu_enduser_top"
+        sequence="3"
         action="action_region"/>
     <!--END MENU CHILD-->
     </data>

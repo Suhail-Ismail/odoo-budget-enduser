@@ -21,7 +21,7 @@ class Partner(models.Model):
                                       'sub_section_section_id',
                                       string="Sub Sections")
 
-    sub_section_section_id = fields.Many2one('budget.enduser.section', string='Section')
+    sub_section_section_id = fields.Many2one('budget.enduser.division', string='Division')
 
     remark = fields.Text(string='Remarks')
     is_budget_section = fields.Boolean(string='Is Budget Section')

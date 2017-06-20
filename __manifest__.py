@@ -12,8 +12,8 @@ Specifically Designed for Etisalat-TBPC
 Contractor Management
 ---------------------
 - Region
+- Division
 - Section
-- Sub Section
 - Access Users
         - Dependent - Can readonly
         - User - General Usage except delete power, can Edit recurrence but not create
@@ -29,8 +29,8 @@ Contractor Management
         'security/budget_enduser.xml',
         'security/ir.model.access.csv',
 
+        'views/division.xml',
         'views/section.xml',
-        'views/sub_section.xml',
         'views/region.xml',
         'views/menu.xml',
     ],

@@ -31,6 +31,7 @@ Contractor Management
 
         'views/division.xml',
         'views/section.xml',
+        'views/sub_section.xml',
         'views/region.xml',
         'views/menu.xml',
     ],

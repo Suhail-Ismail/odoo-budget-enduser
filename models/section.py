@@ -5,7 +5,6 @@ from odoo.addons.budget_utilities.models.utilities import choices_tuple
 
 
 class Section(models.Model):
-    # TODO rename 'budget.enduser.sub.section' to 'budget.enduser.section'
     _name = 'budget.enduser.section'
     _description = 'Section'
     _rec_name = 'name'
@@ -26,8 +25,10 @@ class Section(models.Model):
 
     # RELATIONSHIP
     # ----------------------------------------------------------
-    # TODO rename setion_id to division_id
     division_id = fields.Many2one('budget.enduser.division', string='Division')
+    sub_section_ids = fields.One2many('budget.enduser.sub.section',
+                                      'section_id',
+                                      string="Sub Sections")
 
     # TODO deprecated
     section_id = fields.Integer()

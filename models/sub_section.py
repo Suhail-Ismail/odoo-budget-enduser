@@ -4,9 +4,9 @@ from odoo import models, fields, api
 from odoo.addons.budget_utilities.models.utilities import choices_tuple
 
 
-class Division(models.Model):
-    _name = 'budget.enduser.division'
-    _description = 'Division'
+class SubSection(models.Model):
+    _name = 'budget.enduser.sub.section'
+    _description = 'Sub Section'
     _rec_name = 'name'
     _inherit = ['partner.mixin']
 
@@ -25,9 +25,7 @@ class Division(models.Model):
 
     # RELATIONSHIP
     # ----------------------------------------------------------
-    section_ids = fields.One2many('budget.enduser.section',
-                                  'division_id',
-                                  string="Sections")
+    section_id = fields.Many2one('budget.enduser.section', string='Section')
 
     # BUTTONS AND TRANSITIONS
     # ----------------------------------------------------------

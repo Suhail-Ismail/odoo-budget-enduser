@@ -11,6 +11,11 @@
                 <form string="Region">
                     <sheet>
                         <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" type="object"
+                                    name="toggle_active" icon="fa-archive">
+                                <field name="active" widget="boolean_button"
+                                options='{"terminology": "archive"}'/>
+                            </button>
                         </div>
                         <div class="oe_title">
                             <h1>
@@ -25,7 +30,7 @@
                             </group>
                         </group>
                         <group>
-                            <field name="note"/>
+                            <field name="remark"/>
                         </group>
                     </sheet>
                 </form>
@@ -54,8 +59,7 @@
             <field name="view_mode">tree,form,pivot</field>
             <field name="view_id" ref="view_tree_region"/>
             <field name="context">
-                {'form_view_ref': 'budget_enduser.view_form_region',
-                'search_default_filter_state': 1}
+                {'form_view_ref': 'budget_enduser.view_form_region'}
             </field>
         </record>
         <!--END ACTION-->

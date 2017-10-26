@@ -7,21 +7,13 @@ from odoo.addons.budget_utilities.models.utilities import choices_tuple
 class Division(models.Model):
     _name = 'budget.enduser.division'
     _description = 'Division'
-    _rec_name = 'name'
-    _inherit = ['partner.mixin']
+    _inherit = ['budget.enduser.res.partner.mixin']
 
     # CHOICES
     # ----------------------------------------------------------
-    STATES = choices_tuple(['active', 'inactive'])
 
     # BASIC FIELDS
-    # name exist already
     # ----------------------------------------------------------
-    state = fields.Selection(string='State', selection=STATES, default='active')
-
-    alias = fields.Char(string="Alias")
-
-    remark = fields.Text(string='Remarks')
 
     # RELATIONSHIP
     # ----------------------------------------------------------
@@ -31,10 +23,3 @@ class Division(models.Model):
 
     # BUTTONS AND TRANSITIONS
     # ----------------------------------------------------------
-    @api.one
-    def set2active(self):
-        self.state = 'active'
-
-    @api.one
-    def set2inactive(self):
-        self.state = 'inactive'

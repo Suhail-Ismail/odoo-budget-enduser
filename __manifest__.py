@@ -1,27 +1,28 @@
 # -*- coding: utf-8 -*-
 {
     'name': "End User",
-    'version': '0.1',
+    'version': '11.0.0.1',
     'summary': 'End User Management',
     'sequence': 2,
     'description': """
 Odoo Module
-===========
+==============================
 Specifically Designed for Etisalat-TBPC
 
-Contractor Management
----------------------
 - Region
 - Division
 - Section
-- Access Users
-        - Dependent - Can readonly
-        - User - General Usage except delete power, can Edit recurrence but not create
-        - Manager - All power to manipulate data
+- Sub-Section
+
+Access Users
+---------------------
+- Dependent - Can readonly
+- User - General Usage except delete power, can Edit recurrence but not create
+- Manager - All power to manipulate data
     """,
-    'author': "Marc Philippe de Villeres",
-    'website': "https://github.com/mpdevilleres",
     'category': 'TBPC Budget',
+    'website': "https://github.com/mpdevilleres",
+    'author': "Marc Philippe de Villeres",
     'depends': [
         'budget_utilities',
     ],

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
-# BASIC MODELS
-from . import region, division, section, sub_section, mixin
+# MIXINS
+from . import res_partner_mixin, end_user_mixin
 
+# BASIC MODELS
+from . import region, division, section, sub_section

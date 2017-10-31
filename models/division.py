@@ -7,7 +7,7 @@ from odoo.addons.budget_utilities.models.utilities import choices_tuple
 class Division(models.Model):
     _name = 'budget.enduser.division'
     _description = 'Division'
-    _inherit = ['budget.enduser.res.partner.mixin']
+    _inherit = ['budget.res.partner.mixin']
 
     # CHOICES
     # ----------------------------------------------------------

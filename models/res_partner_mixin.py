@@ -3,7 +3,7 @@ from odoo import models, fields, api, _
 
 
 class ResPartnerMixin(models.AbstractModel):
-    _name = 'budget.enduser.res.partner.mixin'
+    _name = 'budget.res.partner.mixin'
     _description = 'Budget Enduser Res Partner Mixin'
     _rec_name = 'name'
     _inherits = {'res.partner': 'partner_id'}
